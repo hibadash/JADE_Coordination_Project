@@ -44,7 +44,7 @@ public class GridGUI extends JFrame {
         robots.compute(robotName, (k, v) -> {
             if (v == null) {
                 Color color = palette[robots.size() % palette.length];
-                return new RobotInfo(xCell, yCell, color);
+                return new RobotInfo(xCell, yCell, color, robotName);
             } else {
                 v.x = xCell;
                 v.y = yCell;
@@ -59,7 +59,7 @@ public class GridGUI extends JFrame {
         robots.compute(robotName, (k, v) -> {
             if (v == null) {
                 Color color = palette[robots.size() % palette.length];
-                return new RobotInfo(startX, startY, color, startX, startY, zoneWidth, zoneHeight);
+                return new RobotInfo(startX, startY, color, robotName, startX, startY, zoneWidth, zoneHeight);
             } else {
                 v.zoneX = startX;
                 v.zoneY = startY;
@@ -99,7 +99,7 @@ public class GridGUI extends JFrame {
                 g.setColor(r.color);
                 g.fillRect(r.x * cellWidth, r.y * cellHeight, cellWidth, cellHeight);
                 g.setColor(Color.BLACK);
-                g.drawString(r.getName(), r.x * cellWidth + 3, r.y * cellHeight + cellHeight / 2);
+                g.drawString(r.name, r.x * cellWidth + 3, r.y * cellHeight + cellHeight / 2);
             }
         }
     }
@@ -108,19 +108,16 @@ public class GridGUI extends JFrame {
         int x, y;
         int zoneX, zoneY, zoneWidth, zoneHeight;
         Color color;
+        String name;
 
-        RobotInfo(int x, int y, Color c) {
-            this.x = x; this.y = y; this.color = c;
+        RobotInfo(int x, int y, Color c, String name) {
+            this.x = x; this.y = y; this.color = c; this.name = name;
             this.zoneX = x; this.zoneY = y; this.zoneWidth = 1; this.zoneHeight = 1;
         }
 
-        RobotInfo(int x, int y, Color c, int zx, int zy, int zw, int zh) {
-            this.x = x; this.y = y; this.color = c;
+        RobotInfo(int x, int y, Color c, String name, int zx, int zy, int zw, int zh) {
+            this.x = x; this.y = y; this.color = c; this.name = name;
             this.zoneX = zx; this.zoneY = zy; this.zoneWidth = zw; this.zoneHeight = zh;
-        }
-
-        String getName() {
-            return "R"; // short name for grid display
         }
     }
 }
