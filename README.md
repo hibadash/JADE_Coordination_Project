@@ -22,25 +22,6 @@ Each robot agent operates autonomously within a designated **non-overlapping zon
 
 ---
 
-## Project Structure
-JADE_Coordination_Project/
-│
-├─ src/
-│ ├─ agents/
-│ │ ├─ SupervisorAgent.java
-│ │ └─ RobotAgent.java
-│ │
-│ ├─ ui/
-│ │ └─ GridGUI.java
-│ │
-│ └─ MainContainer.java
-│
-├─ lib/
-│ └─ jade.jar (JADE library)
-│
-├─ README.md
-└─ .gitignore
-
 
 ## Prerequisites
 
@@ -55,4 +36,5 @@ JADE_Coordination_Project/
 1. **Compile the project** in your IDE or using terminal:
 
 javac -cp lib/jade.jar -d bin src/agents/*.java src/ui/*.java src/MainContainer.
+## Then do : 
 java -cp bin:lib/jade.jar MainContainer 
